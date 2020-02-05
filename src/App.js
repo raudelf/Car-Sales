@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeFeature, addFeature } from './actions'
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -10,10 +11,12 @@ const App = (props) => {
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    props.removeFeature(item)
   };
 
   const buyItem = item => {
     // dipsatch an action here to add an item
+    props.addFeature(item)
   };
 
   return (
@@ -38,4 +41,4 @@ const mapStateToProps = state => {
   }
 } 
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { removeFeature, addFeature })(App);
